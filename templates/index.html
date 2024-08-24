@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Height Prediction</title>
+</head>
+<body>
+    <h1>Predict Weight Based on Height</h1>
+    <form action="/predict" method="post">
+        <label for="height">Enter Height:</label>
+        <input type="text" name="height" id="height" required>
+        <br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if linear_result is not none %}
+        <h2>Linear Regression Prediction:</h2>
+        <p>For height {{ height }}, the predicted weight (Linear Regression) is: {{ linear_result }}</p>
+
+        <h2>Polynomial Regression Prediction:</h2>
+        <p>For height {{ height }}, the predicted weight (Polynomial Regression) is: {{ polynomial_result }}</p>
+    {% endif %}
+</body>
+</html>
